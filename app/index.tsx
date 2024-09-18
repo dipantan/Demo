@@ -48,8 +48,13 @@ const Index = () => {
     "Healthcare",
   ];
 
+  const rec =[
+    'Now share the construction sectors with your anyone can save it as bookmark',
+    'Now share the entertainment sectors with your anyone can save it as bookmark',
+  ]
+
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Svg width={screenWidth} height={svgHeight} fill="none">
         <Path
           d={`M0 0h${svgWidth}v136c0 27.614-22.386 50-50 50H0V0z`}
@@ -65,11 +70,12 @@ const Index = () => {
             y2={246.657}
             gradientUnits="userSpaceOnUse"
           >
-            <Stop stopColor="#9766FF" />
+            <Stop stopColor="#a77dff" />
             <Stop offset={1} stopColor="#F7F3FF" />
           </LinearGradient>
         </Defs>
       </Svg>
+
 
       <Octicons
         style={{
@@ -80,6 +86,13 @@ const Index = () => {
         name="three-bars"
         size={24}
         color="#fff"
+      />
+      <Image 
+      source={require('../assets/Logo.png')}
+      resizeMode='stretch'
+      style={{height:
+        responsiveFontSize(2.4), width: responsiveWidth(9), position: 'absolute', top: 20, right:20
+      }}
       />
 
       <Svg
@@ -115,8 +128,8 @@ const Index = () => {
 
         <View
           style={{
-            marginTop: 20,
-            marginStart: 20,
+            marginTop: '8%',
+            marginStart: responsiveWidth(6.5),
           }}
         >
           <Text style={{ fontSize: responsiveFontSize(1.8) }}>Welcome,</Text>
@@ -143,7 +156,7 @@ const Index = () => {
               columnGap: 10,
             }}
           >
-            <Feather name="search" size={24} color="#FF8A00" />
+            <Feather name="search" size={responsiveFontSize(2.99)} color="#FF8A00" />
             <Text style={{ color: "#999" }}>What are you looking for?</Text>
           </View>
         </View>
@@ -153,32 +166,132 @@ const Index = () => {
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: "center",marginTop:-responsiveHeight(2.9)
         }}
       >
         <Text
           style={{
-            marginStart: 20,
-            fontSize: responsiveFontSize(2.4),
+            marginStart: responsiveWidth(4.5),
+            fontSize: responsiveFontSize(2.2),
             fontWeight: "700",
+            
           }}
         >
           Explore Categories
         </Text>
         <Entypo
-          style={{ marginEnd: 20 }}
+          style={{ marginEnd: responsiveWidth(4.5) }}
           name="dots-three-horizontal"
-          size={24}
+          size={responsiveFontSize(2.5)}
           color="black"
         />
       </View>
 
-      <View>
+      <View style={{width:'92%',alignSelf:'center',flexDirection:'row',alignItems:'center',marginTop:20,}}>
         <Image
           source={require("../assets/categories/construction.png")}
           style={styles.image}
         />
+        <Image
+          source={require("../assets/categories/entertainment.png")}
+          style={[styles.image,{width:'43%'}]}
+        />
       </View>
+      <View style={{width:'92%',alignSelf:'center',flexDirection:'row',alignItems:'center',marginTop:10,}}>
+      <Image
+          source={require("../assets/categories/pet.png")}
+          style={[styles.image,{width:'31%'}]}
+        />
+        <Image
+          source={require("../assets/categories/home.png")}
+          style={[styles.image,{width:'35%'}]}
+        />
+         <Image
+          source={require("../assets/categories/events.png")}
+          style={[styles.image,{width:'30%'}]}
+        />
+         
+      </View>
+      <View style={{width:'92%',alignSelf:'center',flexDirection:'row',alignItems:'center',marginTop:10,}}>
+      <Image
+          source={require("../assets/categories/health.png")}
+          style={[styles.image,{width:'37%'}]}
+        />
+        
+        </View>
+        
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",marginTop:responsiveHeight(2.4)
+        }}
+      >
+        <Text
+          style={{
+            marginStart: responsiveWidth(4.5),
+            fontSize: responsiveFontSize(2.2),
+            fontWeight: "700",
+            
+          }}
+        >
+          Popular Sector
+        </Text>
+        <Entypo
+          style={{ marginEnd: responsiveWidth(4.5) }}
+          name="dots-three-horizontal"
+          size={responsiveFontSize(2.5)}
+          color="black"
+        />
+      </View>
+      <View style={{width:'92%',alignSelf:'center',flexDirection:'row',alignItems:'center',marginTop:20,justifyContent:'space-between'}}>
+        <Image
+        resizeMode="stretch"
+          source={require("../assets/sector/home.png")}
+          style={[styles.image,{width:'48%',height:responsiveHeight(18.3),marginRight:0}]}
+        />
+        <Image
+          source={require("../assets/sector/helt.png")}
+          resizeMode="stretch"
+          style={[styles.image,{width:'48%',height:responsiveHeight(18.3),marginRight:0}]}
+        />
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",marginTop:responsiveHeight(2.4)
+        }}
+      >
+        <Text
+          style={{
+            marginStart: responsiveWidth(4.5),
+            fontSize: responsiveFontSize(2.2),
+            fontWeight: "700",
+            
+          }}
+        >
+          Recommended For You
+        </Text>
+        <Entypo
+          style={{ marginEnd: responsiveWidth(4.5) }}
+          name="dots-three-horizontal"
+          size={responsiveFontSize(2.5)}
+          color="black"
+        />
+      </View>
+     { rec.map((item)=>
+     <View style={{width:'92%',alignSelf:'center',marginTop:20,justifyContent:'center'}}>
+     <Image
+     resizeMode="stretch"
+       source={require("../assets/rec/rec.png")}
+       style={[styles.image,{width:'100%',height:responsiveHeight(15),marginRight:0,marginBottom:20}]}
+     />
+     <Text numberOfLines={3} style={{position:'absolute',top:15,right:'18%',width:'50%',fontSize:responsiveFontSize(2),fontWeight:'bold',color:'#060047'}}>{item}</Text>
+   </View>
+    
+    
+    ) }
     </ScrollView>
   );
 };
@@ -190,8 +303,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    // width: "100%",
-    height: 100,
-    resizeMode: "contain",
+    width:'42%',
+    height: responsiveHeight(5.2),marginRight:responsiveWidth(1.5),
+    resizeMode: "stretch",
   },
 });
