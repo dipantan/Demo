@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
@@ -27,6 +28,7 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import Octicons from "@expo/vector-icons/Octicons";
+import { router } from "expo-router";
 
 const Index = () => {
   const { width: screenWidth } = Dimensions.get("window");
@@ -87,13 +89,19 @@ const Index = () => {
         size={24}
         color="#fff"
       />
+      <TouchableOpacity style={{height:
+        responsiveFontSize(2.5), width: responsiveWidth(9), position: 'absolute', top: 20, right:20
+      }} onPress={()=>{
+        router.push({pathname:'/home'})
+      }}>
       <Image 
       source={require('../assets/Logo.png')}
       resizeMode='stretch'
       style={{height:
-        responsiveFontSize(2.4), width: responsiveWidth(9), position: 'absolute', top: 20, right:20
+        responsiveFontSize(2.3), width: responsiveWidth(9),
       }}
       />
+      </TouchableOpacity>
 
       <Svg
         width={svgWidth2}
