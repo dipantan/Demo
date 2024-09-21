@@ -3,7 +3,7 @@
     "name": "Super",
     "slug": "Super",
     "scheme": "super",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -33,6 +33,11 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b15f82f2-a066-4829-9d07-a983f2fb7d57"
+      }
+    }
   }
 }
