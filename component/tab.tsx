@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { View, TouchableOpacity, Text, Animated } from "react-native";
+import React from "react";
+import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather, FontAwesome5, Foundation } from "@expo/vector-icons";
 import { responsiveWidth } from "react-native-responsive-dimensions";
@@ -12,15 +12,6 @@ const CustomTabBar = ({
   activeIconColor,
 }) => {
   const { navigate } = useNavigation();
-  const linePosition = useRef(new Animated.Value(0)).current;
-
-  const totalTabs = state.routes.length;
-  const tabWidth = 100; // Adjust as needed
-
-  const translateX = linePosition.interpolate({
-    inputRange: [0, totalTabs - 1],
-    outputRange: [0, (totalTabs - 1) * tabWidth],
-  });
 
   return (
     <View
@@ -78,13 +69,12 @@ const CustomTabBar = ({
               }}
               key={route.name}
             >
-              <Animated.View
+              <View
                 style={{
                   flexDirection: "row",
                   justifyContent: "center",
                   alignItems: "center",
                   columnGap: 5,
-                  transform: [{ translateX }],
                 }}
               >
                 {options.title.toLowerCase() === "home" ? (
@@ -123,22 +113,11 @@ const CustomTabBar = ({
                     {label.toString()}
                   </Text>
                 )}
-              </Animated.View>
+              </View>
             </TouchableOpacity>
           );
         }
       )}
-
-      {/* <Animated.View
-        style={{
-          position: "absolute",
-          height: 2,
-          width: tabWidth,
-          backgroundColor: "#007AFF", // Color of the line
-          bottom: 0,
-          transform: [{ translateX }],
-        }}
-      /> */}
     </View>
   );
 };
